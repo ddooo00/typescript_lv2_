@@ -32,7 +32,7 @@ function Main() {
           padding: "10px",
         }}
       >
-        <p>Copyright 2023. JeongSongJu. All rights reserved.</p>
+        <p>Copyright 2023. so young. All rights reserved.</p>
       </footer>
     </Container>
   );
