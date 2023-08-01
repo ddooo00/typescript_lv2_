@@ -34,14 +34,26 @@ export const toggleStatusTodo = (id, isDone) => {
 const initialState = [
   {
     id: uuid(),
-    title: "리액트 강의보기",
-    contents: "챕터 1부터 챕터 12까지 학습",
+    title: "Typescript",
+    contents: "Typescript 공부하기",
     isDone: false,
   },
   {
     id: uuid(),
-    title: "점심 먹기",
-    contents: "점심 뭐먹지..?",
+    title: "Typescript",
+    contents: "Typescript lv,1 과제하기",
+    isDone: true,
+  },
+  {
+    id: uuid(),
+    title: "AWS",
+    contents: "AWS 공부하기",
+    isDone: false,
+  },
+  {
+    id: uuid(),
+    title: "React",
+    contents: "React 공부하기",
     isDone: false,
   },
 ];
