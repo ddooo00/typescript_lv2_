@@ -10,9 +10,10 @@ function Main() {
         style={{
           backgroundColor: "#d1ffdd",
           padding: "10px",
+          textAlign: "center",
         }}
       >
-        My TodoList
+        💜Todo-List💜
       </header>
       <main
         style={{
@@ -32,7 +33,7 @@ function Main() {
           padding: "10px",
         }}
       >
-        <p>Typescript - so young. All rights reserved.</p>
+        <p style={{ textAlign: "center" }}>Typescript lv.2 - so young</p>
       </footer>
     </Container>
   );

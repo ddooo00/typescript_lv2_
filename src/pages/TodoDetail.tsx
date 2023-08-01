@@ -25,7 +25,7 @@ const TodoDetail: React.FC = () => {
               navigate("/");
             }}
           >
-            이전으로
+            이전으로↩️
           </BackButton>
         </div>
         <h1>{todo.title}</h1>

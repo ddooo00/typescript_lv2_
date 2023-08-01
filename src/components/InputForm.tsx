@@ -25,7 +25,13 @@ function InputForm() {
 
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+        onSubmit={submitHandler}
+      >
         <input
           type="text"
           placeholder="제목을 입력하세요."

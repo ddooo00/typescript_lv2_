@@ -4,7 +4,7 @@ import { deleteTodo, toggleStatusTodo } from "../redux/modules/todos";
 import { Link } from "react-router-dom";
 import { RootState } from "../redux/config/configStore";
 
-//interface or type 선언
+// type 선언
 type TodoProps = {
   listDone: boolean;
 };
@@ -16,9 +16,9 @@ function TodoList({ listDone }: TodoProps) {
 
   //삭제버튼
   const deleteHandler = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void => {
-    const id = (e.target as HTMLElement).getAttribute("data-key");
+    const id = (event.target as HTMLElement).getAttribute("data-key");
     dispatch(deleteTodo(id as string));
   };
 
@@ -33,7 +33,7 @@ function TodoList({ listDone }: TodoProps) {
 
   return (
     <div>
-      <h2>{listDone ? "완료 목록" : "할 일 목록"}</h2>
+      <h2>{listDone ? "🎉완료 목록🎉" : "✏️할 일 목록✏️"}</h2>
       {todos
         .filter((todo: any) => {
           return todo.isDone === listDone;
