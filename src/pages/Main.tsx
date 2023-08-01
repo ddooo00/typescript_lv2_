@@ -22,8 +22,8 @@ function Main() {
       >
         <InputForm />
         <div>
-          <TodoList listIsDone={false} />
-          <TodoList listIsDone={true} />
+          <TodoList listDone={false} />
+          <TodoList listDone={true} />
         </div>
       </main>
       <footer
@@ -32,7 +32,7 @@ function Main() {
           padding: "10px",
         }}
       >
-        <p>Copyright 2023. so young. All rights reserved.</p>
+        <p>Typescript - so young. All rights reserved.</p>
       </footer>
     </Container>
   );

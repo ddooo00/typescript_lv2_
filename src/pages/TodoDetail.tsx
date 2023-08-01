@@ -3,11 +3,17 @@ import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
 
-const TodoDetail = () => {
+interface Todo {
+  id: string;
+  title: string;
+  contents: string;
+}
+
+const TodoDetail: React.FC = () => {
   const navigate = useNavigate();
-  const { id } = useParams();
-  const todos = useSelector((state) => state.todos);
-  const todo = todos.find((item) => item.id === id);
+  const { id } = useParams<{ id: string }>();
+  const todos = useSelector((state: { todos: Todo[] }) => state.todos);
+  const todo = todos.find((item) => item.id === id) as Todo;
 
   return (
     <BoxContainer>

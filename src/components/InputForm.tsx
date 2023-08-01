@@ -6,13 +6,13 @@ import { useDispatch } from "react-redux";
 
 // input 기능 구현
 function InputForm() {
-  const [title, setTitle] = useState("");
-  const [contents, setContents] = useState("");
+  const [title, setTitle] = useState<string>("");
+  const [contents, setContents] = useState<string>("");
 
   const dispatch = useDispatch();
 
-  const submitHandler = (e) => {
-    e.preventDefault();
+  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     const newTodo = {
       id: uuid(),
       title,

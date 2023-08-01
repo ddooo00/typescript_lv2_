@@ -2,33 +2,43 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteTodo, toggleStatusTodo } from "../redux/modules/todos";
 import { Link } from "react-router-dom";
+import { RootState } from "../redux/config/configStore";
+
+//interface or type 선언
+type TodoProps = {
+  listDone: boolean;
+};
 
 // 할 일 목록, 완료 목록 기능 구현
-function TodoList({ listIsDone }) {
-  const todos = useSelector((state) => state.todos);
+function TodoList({ listDone }: TodoProps) {
+  const todos = useSelector((state: RootState) => state.todos);
   const dispatch = useDispatch();
 
   //삭제버튼
-  const deleteHandler = (e) => {
-    const id = e.target.getAttribute("data-key");
-    dispatch(deleteTodo(id));
+  const deleteHandler = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void => {
+    const id = (e.target as HTMLElement).getAttribute("data-key");
+    dispatch(deleteTodo(id as string));
   };
 
   //상태버튼
-  const toggleStatusHandler = (e) => {
-    const statusId = e.target.getAttribute("data-key");
-    const isDone = listIsDone;
-    dispatch(toggleStatusTodo(statusId, isDone));
+  const toggleStatusHandler = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ): void => {
+    const statusId = (e.target as HTMLElement).getAttribute("data-key");
+    const isDone = listDone;
+    dispatch(toggleStatusTodo(statusId as string, isDone));
   };
 
   return (
     <div>
-      <h2>{listIsDone ? "완료 목록" : "할 일 목록"}</h2>
+      <h2>{listDone ? "완료 목록" : "할 일 목록"}</h2>
       {todos
-        .filter((todo) => {
-          return todo.isDone === listIsDone;
+        .filter((todo: any) => {
+          return todo.isDone === listDone;
         })
-        .map((todo) => {
+        .map((todo: any) => {
           return (
             <div
               key={todo.id}
@@ -51,7 +61,7 @@ function TodoList({ listIsDone }) {
                 }}
               >
                 <button onClick={toggleStatusHandler} data-key={todo.id}>
-                  {listIsDone ? "취소" : "완료"}
+                  {listDone ? "취소" : "완료"}
                 </button>
                 <button onClick={deleteHandler} data-key={todo.id}>
                   삭제

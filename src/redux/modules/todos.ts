@@ -1,10 +1,18 @@
 import uuid from "react-uuid";
 
-const ADD_TODO = "ADD_TODO";
-const DELETE_TODO = "DELETE_TODO";
-const TOGGLE_STATUS_TODO = "TOGGLE_STATUS_TODO";
+const ADD_TODO = "ADD_TODO" as const;
+const DELETE_TODO = "DELETE_TODO" as const;
+const TOGGLE_STATUS_TODO = "TOGGLE_STATUS_TODO" as const;
 
-export const addTodo = (todo) => {
+//todo type
+interface Todo {
+  id: string;
+  title: string;
+  contents: string;
+  isDone?: boolean;
+}
+
+export const addTodo = (todo: Todo) => {
   return {
     type: ADD_TODO,
     newTodo: {
@@ -16,14 +24,14 @@ export const addTodo = (todo) => {
   };
 };
 
-export const deleteTodo = (id) => {
+export const deleteTodo = (id: string) => {
   return {
     type: DELETE_TODO,
     id,
   };
 };
 
-export const toggleStatusTodo = (id, isDone) => {
+export const toggleStatusTodo = (id: string, isDone: boolean) => {
   return {
     type: TOGGLE_STATUS_TODO,
     id,
@@ -31,7 +39,12 @@ export const toggleStatusTodo = (id, isDone) => {
   };
 };
 
-const initialState = [
+type TodosAction =
+  | ReturnType<typeof addTodo>
+  | ReturnType<typeof deleteTodo>
+  | ReturnType<typeof toggleStatusTodo>;
+
+const initialState: Todo[] = [
   {
     id: uuid(),
     title: "Typescript",
@@ -41,15 +54,10 @@ const initialState = [
   {
     id: uuid(),
     title: "Typescript",
-    contents: "Typescript lv,1 과제하기",
+    contents: "Typescript lv,2 과제하기",
     isDone: true,
   },
-  {
-    id: uuid(),
-    title: "AWS",
-    contents: "AWS 공부하기",
-    isDone: false,
-  },
+
   {
     id: uuid(),
     title: "React",
@@ -59,7 +67,7 @@ const initialState = [
 ];
 
 // Reducer
-const todos = (state = initialState, action) => {
+const todos = (state = initialState, action: TodosAction) => {
   switch (action.type) {
     case "ADD_TODO":
       return [...state, action.newTodo];
