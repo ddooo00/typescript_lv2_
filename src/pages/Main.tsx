@@ -8,8 +8,8 @@ function Main() {
     <Container>
       <header
         style={{
-          backgroundColor: "#d1ffdd",
-          padding: "10px",
+          backgroundColor: "#feffd6",
+          padding: "20px",
           textAlign: "center",
         }}
       >
@@ -17,7 +17,7 @@ function Main() {
       </header>
       <main
         style={{
-          backgroundColor: "#feffd6",
+          backgroundColor: "#d1ffdd",
           padding: "10px",
         }}
       >
@@ -30,7 +30,7 @@ function Main() {
       <footer
         style={{
           backgroundColor: "#fae6ff",
-          padding: "10px",
+          padding: "3px",
         }}
       >
         <p style={{ textAlign: "center" }}>Typescript lv.2 - so young</p>
